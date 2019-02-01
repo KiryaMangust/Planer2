@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -34,6 +35,11 @@ public class TaskOperation
 					Statement statement = ConnectionToDB.co.createStatement ();
 					statement.executeUpdate(query);
 					statement.close();
+//					query = "INSERT INTO LPlans (Task, Done) " + "VAlUES (?,?)";
+//					PreparedStatement statement = ConnectionToDB.co.prspareStatement(query);
+//					statement.setString(1, quest);
+//					statement.setString(2, "(In proces)");
+//					statement.execute();
 				}
 				else
 				{

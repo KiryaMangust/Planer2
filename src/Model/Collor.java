@@ -20,6 +20,7 @@ public class Collor {
                  Component c = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
                  if(Size(value.toString()))
                  {
+                	 //'a' and 'b' are special flags. They are necessary for checking, which task is important in the future.
                 	 a=10;
                 	 b=7;
                 	 if (value.toString().length()<10)
@@ -50,7 +51,7 @@ public class Collor {
             }
        });
 	}
-	
+
 	public static boolean Size(String value)
 	{
 		int size = value.length();

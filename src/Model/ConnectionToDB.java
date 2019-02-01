@@ -16,6 +16,7 @@ public class ConnectionToDB
 	public static JList listAll = new JList(listModelAll);
 	public static JList listLong = new JList(listModelLong);
 	
+	//Void with creating connection with DB
 	public static boolean open ()
 	{
 		try
@@ -30,12 +31,11 @@ public class ConnectionToDB
 			return false;
 		}
 	}
-	
+	//Taking information about TODAY tasks
 	public static void SelectToday ()
 	{
 		try
 		{	
-			//Предварительная очистка списка
 			listModel.removeAllElements();	
 			Statement statement = co.createStatement();
 			String querry = "SELECT * From Plans;";
@@ -68,12 +68,11 @@ public class ConnectionToDB
 			System.out.println(e);
 		}
 	}
-	
+	//Taking information about All tasks
 	public static void SelectAll ()
 	{
 		try
 		{	
-			//Предварительная очистка списка
 			listModelAll.removeAllElements();	
 			Statement statement = co.createStatement();
 			String querry = "SELECT * From Plans;";
@@ -102,16 +101,13 @@ public class ConnectionToDB
 			System.out.println(e);
 		}
 	}
-
+	//Void witch send information into list, with date selected on JCalendar
 	public static void DaySelection()
 	{
-		//Считывание даты
 			Date.CalendarDate();	
 			try
 			{
-				//Очистка списка
 				listModelAll.removeAllElements();	
-				//Считывание данных из БД
 				Statement statement = co.createStatement();
 				String querry = "SELECT * From Plans Where Date = '"+ Date.sqlDate1 +"';";
 				ResultSet rs = statement.executeQuery(querry);
@@ -139,12 +135,11 @@ public class ConnectionToDB
 				System.out.println(e);
 			}
 	}
-
+	//Taking information about LONG tasks
 	public static void SelectLong()
 	{
 		try
 		{	
-			//Предварительная очистка списка
 			listModelLong.removeAllElements();	
 			Statement statement = co.createStatement();
 			String querry = "SELECT * From LPlans;";
@@ -164,7 +159,7 @@ public class ConnectionToDB
 			System.out.println(e);
 		}
 	}
-	
+	//Refreshing information
 	public static void Refresh()
 	{
 		SelectToday();

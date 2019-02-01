@@ -11,11 +11,13 @@ import Model.PositionOperations;
 
 public class Position {
 	
+	//Arrays to collect information about position
 	public static int[] X = new int[8];
 	public static int[] Y = new int[8];
 	public static Connection co2;
 	public static String[] Winodws = new String[4];
 
+	//Void witch create connection with DB
 	public static void open ()
 	{
 		try
@@ -29,7 +31,7 @@ public class Position {
 			System.out.println(e);
 		}
 	}
-	
+	//Taking information with coordinates from DB
 	public static void SelectXY ()
 	{
 		try
@@ -54,7 +56,7 @@ public class Position {
 			System.out.println(e);
 		}
 	}
-
+	//Sending coordinates
 	public static void SentXY()
 	{
 		try 

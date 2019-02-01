@@ -15,6 +15,7 @@ public class PositionOperations
 		Position.SentXY();
 	}
 	
+	//Void for refreshing windows positions
 	public static void Seen()
 	{
 		TakeInfo();
@@ -28,6 +29,7 @@ public class PositionOperations
 		LongTimeTask.main();
 	}
 	
+	//Taking information from fields on 'Position' window
 	public static void TakeInfo()
 	{
 		try 
@@ -48,6 +50,7 @@ public class PositionOperations
 		}
 	}
 	
+	//Sending values to fields into 'Position' window
 	public static void SentInfo()
 	{
 		PositionWindow.textField.setText(Integer.toString(Position.X[0]));

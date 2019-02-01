@@ -8,15 +8,15 @@ public class TaskOperation
 {
 	public static String query;
 	public static int a,b; 
+	
+	//Takes information from fields for new task. And put it into Data Base
 	public static void CreateNewTask()
 	{
 		try
 		{
 			Date.CalendarDate();
-			//Считывание текста задания
 			String quest = TommorowTask.textArea.getText();
 			String date = Date.sqlDate1.toString();
-			//Формирование задания
 			if( quest.equals("") | quest.equals("А текст задания, не?"))
 			{
 				TommorowTask.textArea.setText("А текст задания, не?");
@@ -40,7 +40,6 @@ public class TaskOperation
 					Statement statement = ConnectionToDB.co.createStatement ();
 					statement.executeUpdate(query);
 					statement.close();
-					//Освежение данных
 				}
 			}
 			ConnectionToDB.Refresh();
@@ -50,7 +49,7 @@ public class TaskOperation
 			System.out.println(e);
 		}
 	}
-	
+	//Change task status to 'Done'
 	public static void DoneTask()
 	{
 			try
@@ -88,7 +87,7 @@ public class TaskOperation
 				System.out.println(e);
 			}
 	}
-	
+	//Delete completed tasks (at today window)
 	public static void DeleteDone()
 	{
 		try
@@ -145,7 +144,7 @@ public class TaskOperation
 			System.out.println(e.getMessage());
 		}
 	}
-	
+	//Delete selected task (at Tommororw window)
 	public static void DeleteSelected()
 	{
 		try
@@ -205,7 +204,7 @@ public class TaskOperation
 			e.printStackTrace();
 		}
 	}
-	
+	//Change long task status to 'Done'
 	public static void DoneLong()
 	{
 		try
@@ -223,7 +222,7 @@ public class TaskOperation
 			System.out.println(e);
 		}
 	}
-	
+	//Delete completed long tasks
 	public static void DeleteDoneSelected()
 	{
 		try
@@ -250,21 +249,21 @@ public class TaskOperation
 			System.out.println(e);
 		}
 	}
-	
+	//If task is important
 	public static boolean IfImportant(String task)
 	{
 		int longer = task.length();
 		String IfImportant = task.substring(longer-a, longer-b);
 		return (IfImportant.equals("(i)"));
 	}
-
+	//If task is Done
 	public static boolean Done(String value)
 	{
 		int longer = value.length();
 		String IfDone = value.substring(longer-6, longer);
 		return (IfDone.equals("(Done)"));
 	}
-
+	//Delete all tasks
 	public static void DeleteAll() 
 	{
 		try

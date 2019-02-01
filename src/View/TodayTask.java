@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import Controiler.Position;
 import Controiler.TodayListener;
-
+//Class with graphic initialization
 public class TodayTask {
 
 	public static JFrame frmTodayTasks;

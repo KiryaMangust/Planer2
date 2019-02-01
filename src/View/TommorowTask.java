@@ -20,7 +20,7 @@ import Controiler.TommorowListener;
 import Model.ConnectionToDB;
 import java.awt.Dimension;
 import javax.swing.JSeparator;
-
+//Class with graphic initialization
 public class TommorowTask {
 
 	public static JFrame frame;

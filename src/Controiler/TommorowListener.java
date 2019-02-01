@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import Model.ConnectionToDB;
 import Model.TaskOperation;
 import View.TommorowTask;
-
+//Listener for 'Tommorow' window with full list of tasks
 public class TommorowListener implements ActionListener{
 	
 	public void actionPerformed(ActionEvent a) 

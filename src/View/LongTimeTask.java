@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
-
+//Class with graphic initialization
 public class LongTimeTask {
 
 	public static JFrame frame;

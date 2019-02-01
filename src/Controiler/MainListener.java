@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import Model.ConnectionToDB;
 import Model.TaskOperation;
 import View.*;
-
+//Listener for 'Main' window at start
 public class MainListener implements ActionListener{
 
 	public void actionPerformed(ActionEvent a) 

@@ -9,7 +9,7 @@ public class Date
 	public static String TodayDate = new String();
 	public static java.sql.Date sqlDate1;
 	
-	//Сегодняшняя дата
+	//Today date
 	public static void TodayIs() 
 	{
 		java.util.Date date = new java.util.Date();
@@ -19,7 +19,7 @@ public class Date
 		TodayDate = dateFormat2.format(date);
 	}
 
-	//Считывание даты с календаря и трансформация в формат БД
+	//Taking information from JCalendat and parsing into SQL format
 	public static void CalendarDate() 
 	{
 		try

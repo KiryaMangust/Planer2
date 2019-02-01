@@ -10,7 +10,7 @@ import Controiler.PositionListener;
 import Model.PositionOperations;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
-
+//Class with graphic initialization
 public class PositionWindow {
 
 	private JFrame frame;

@@ -1,14 +1,9 @@
 package View;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-
 import Controiler.LongListener;
 import Controiler.Position;
-import Controiler.TodayListener;
 import Model.ConnectionToDB;
-
 import java.awt.Window.Type;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -20,13 +15,19 @@ public class LongTimeTask {
 
 	public static JFrame frame;
 
-	public static void main() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main() 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
+				try 
+				{
 					LongTimeTask window = new LongTimeTask();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} 
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -40,10 +41,12 @@ public class LongTimeTask {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("\u0414\u043E\u043B\u0433\u043E\u0441\u0440\u043E\u0447\u043D\u044B\u0435 \u0437\u0430\u0434\u0430\u043D\u0438\u044F");
+		frame.setTitle("Долгосрочные задания");
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.getContentPane().setLayout(null);
+		frame.setType(Type.UTILITY);
+		frame.setBounds(Position.X[3],Position.Y[3], 560, 340);
 		
 		ConnectionToDB.listLong.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConnectionToDB.listLong.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -55,29 +58,27 @@ public class LongTimeTask {
 		scrollPane.getViewport().setView(ConnectionToDB.listLong);
 		frame.getContentPane().add(scrollPane);
 		
-		JButton button_2 = new JButton("Выполнено");
-		button_2.setForeground(Color.DARK_GRAY);
-		button_2.setFont(new Font("Arial", Font.PLAIN, 20));
-		button_2.setFocusable(false);
-		button_2.setFocusTraversalKeysEnabled(false);
-		button_2.setFocusPainted(false);
-		button_2.setBackground(Color.WHITE);
-		button_2.addActionListener(new LongListener());
-		button_2.setBounds(50, 245, 193, 32);
-		frame.getContentPane().add(button_2);
+		JButton buttonDone = new JButton("Выполнено");
+		buttonDone.setForeground(Color.DARK_GRAY);
+		buttonDone.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonDone.setFocusable(false);
+		buttonDone.setFocusTraversalKeysEnabled(false);
+		buttonDone.setFocusPainted(false);
+		buttonDone.setBackground(Color.WHITE);
+		buttonDone.addActionListener(new LongListener());
+		buttonDone.setBounds(50, 245, 193, 32);
+		frame.getContentPane().add(buttonDone);
 		
-		JButton button = new JButton("Удалить выполненые");
-		button.setForeground(Color.DARK_GRAY);
-		button.setFont(new Font("Arial", Font.PLAIN, 20));
-		button.setFocusable(false);
-		button.setFocusTraversalKeysEnabled(false);
-		button.setFocusPainted(false);
-		button.setBackground(Color.WHITE);
-		button.addActionListener(new LongListener());
-		button.setBounds(255, 245, 250, 32);
-		frame.getContentPane().add(button);
+		JButton buttonDeleteDone = new JButton("Удалить выполненые");
+		buttonDeleteDone.setForeground(Color.DARK_GRAY);
+		buttonDeleteDone.setFont(new Font("Arial", Font.PLAIN, 20));
+		buttonDeleteDone.setFocusable(false);
+		buttonDeleteDone.setFocusTraversalKeysEnabled(false);
+		buttonDeleteDone.setFocusPainted(false);
+		buttonDeleteDone.setBackground(Color.WHITE);
+		buttonDeleteDone.addActionListener(new LongListener());
+		buttonDeleteDone.setBounds(255, 245, 250, 32);
+		frame.getContentPane().add(buttonDeleteDone);
 		
-		frame.setType(Type.UTILITY);
-		frame.setBounds(Position.X[3],Position.Y[3], 560, 340);
 	}
 }

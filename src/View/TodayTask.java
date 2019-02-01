@@ -1,5 +1,4 @@
 package View;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
@@ -9,7 +8,6 @@ import javax.swing.ListSelectionModel;
 import Model.ConnectionToDB;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-
 import Controiler.Position;
 import Controiler.TodayListener;
 
@@ -51,26 +49,26 @@ public class TodayTask {
 		frmTodayTasks.getContentPane().setLayout(null);
 		frmTodayTasks.setBounds(Position.X[1],Position.Y[1], 450, 380);
 		
-		JButton btnNewButton = new JButton("Выполнено");
-		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnNewButton.setForeground(Color.DARK_GRAY);
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setFocusable(false);
-		btnNewButton.setFocusTraversalKeysEnabled(false);
-		btnNewButton.setFocusPainted(false);
-		btnNewButton.setBounds(48, 233, 341, 33);
-		btnNewButton.addActionListener(new TodayListener());
-		frmTodayTasks.getContentPane().add(btnNewButton);
+		JButton ButtonDone = new JButton("Выполнено");
+		ButtonDone.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonDone.setForeground(Color.DARK_GRAY);
+		ButtonDone.setBackground(Color.WHITE);
+		ButtonDone.setFocusable(false);
+		ButtonDone.setFocusTraversalKeysEnabled(false);
+		ButtonDone.setFocusPainted(false);
+		ButtonDone.setBounds(48, 233, 341, 33);
+		ButtonDone.addActionListener(new TodayListener());
+		frmTodayTasks.getContentPane().add(ButtonDone);
 		
-		JButton button_1 = new JButton("Удалить выполненые");
-		button_1.setForeground(Color.DARK_GRAY);
-		button_1.setFont(new Font("Arial", Font.PLAIN, 20));
-		button_1.setFocusable(false);
-		button_1.setFocusTraversalKeysEnabled(false);
-		button_1.setBackground(Color.WHITE);
-		button_1.setBounds(48, 279, 341, 33);
-		button_1.addActionListener(new TodayListener());
-		frmTodayTasks.getContentPane().add(button_1);
+		JButton ButtonDelete = new JButton("Удалить выполненые");
+		ButtonDelete.setForeground(Color.DARK_GRAY);
+		ButtonDelete.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonDelete.setFocusable(false);
+		ButtonDelete.setFocusTraversalKeysEnabled(false);
+		ButtonDelete.setBackground(Color.WHITE);
+		ButtonDelete.setBounds(48, 279, 341, 33);
+		ButtonDelete.addActionListener(new TodayListener());
+		frmTodayTasks.getContentPane().add(ButtonDelete);
 		
 		ConnectionToDB.listT.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConnectionToDB.listT.setFont(new Font("Arial", Font.PLAIN, 18));

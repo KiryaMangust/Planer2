@@ -54,42 +54,53 @@ public class TommorowTask {
 		frame.getContentPane().setBackground(Color.DARK_GRAY);
 		frame.getContentPane().setForeground(Color.DARK_GRAY);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+		frame.setType(Type.UTILITY);
+		frame.setBounds(Position.X[2],Position.Y[2], 800, 735);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(51, 373, 321, 214);
-		frame.getContentPane().add(scrollPane);
+		JButton ButtonCreate = new JButton("Создать");
+		ButtonCreate.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonCreate.setForeground(Color.DARK_GRAY);
+		ButtonCreate.setBackground(Color.WHITE);
+		ButtonCreate.setFocusable(false);
+		ButtonCreate.setFocusTraversalKeysEnabled(false);
+		ButtonCreate.setFocusPainted(false);
+		ButtonCreate.setBounds(51, 636, 145, 32);
+		ButtonCreate.addActionListener(new TommorowListener());
+		frame.getContentPane().add(ButtonCreate);
 		
-		scrollPane.setViewportView(textArea);
-		textArea.setMargin(new Insets(2, 6, 2, 2));
-		textArea.setTabSize(2);
-		textArea.setFont(new Font("Arial", Font.PLAIN, 20));
-		textArea.setLineWrap(true);
+		JButton ButtonDelete = new JButton("Удалить");
+		ButtonDelete.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonDelete.setForeground(Color.DARK_GRAY);
+		ButtonDelete.setBackground(Color.WHITE);
+		ButtonDelete.setFocusable(false);
+		ButtonDelete.setFocusTraversalKeysEnabled(false);
+		ButtonDelete.setFocusPainted(false);
+		ButtonDelete.addActionListener(new TommorowListener());
+		ButtonDelete.setBounds(608, 636, 135, 32);
+		frame.getContentPane().add(ButtonDelete);
 		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(79, 348, 636, 11);
-		frame.getContentPane().add(separator);
+		JButton ButtonShowAll = new JButton("Показать всё");
+		ButtonShowAll.setForeground(Color.DARK_GRAY);
+		ButtonShowAll.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonShowAll.setFocusable(false);
+		ButtonShowAll.setFocusTraversalKeysEnabled(false);
+		ButtonShowAll.setFocusPainted(false);
+		ButtonShowAll.setBackground(Color.WHITE);
+		ButtonShowAll.addActionListener(new TommorowListener());
+		ButtonShowAll.setBounds(415, 636, 181, 32);
+		frame.getContentPane().add(ButtonShowAll);
 		
-		JButton button = new JButton("Создать");
-		button.setFont(new Font("Arial", Font.PLAIN, 20));
-		button.setForeground(Color.DARK_GRAY);
-		button.setBackground(Color.WHITE);
-		button.setFocusable(false);
-		button.setFocusTraversalKeysEnabled(false);
-		button.setFocusPainted(false);
-		button.setBounds(51, 636, 145, 32);
-		button.addActionListener(new TommorowListener());
-		frame.getContentPane().add(button);
-		
-		JButton button_1 = new JButton("Удалить");
-		button_1.setFont(new Font("Arial", Font.PLAIN, 20));
-		button_1.setForeground(Color.DARK_GRAY);
-		button_1.setBackground(Color.WHITE);
-		button_1.setFocusable(false);
-		button_1.setFocusTraversalKeysEnabled(false);
-		button_1.setFocusPainted(false);
-		button_1.addActionListener(new TommorowListener());
-		button_1.setBounds(608, 636, 135, 32);
-		frame.getContentPane().add(button_1);
+		JButton ButtonClear = new JButton("Очистить");
+		ButtonClear.setForeground(Color.DARK_GRAY);
+		ButtonClear.setFont(new Font("Arial", Font.PLAIN, 20));
+		ButtonClear.setFocusable(false);
+		ButtonClear.setFocusTraversalKeysEnabled(false);
+		ButtonClear.setFocusPainted(false);
+		ButtonClear.setBackground(Color.WHITE);
+		ButtonClear.addActionListener(new TommorowListener());
+		ButtonClear.setBounds(208, 636, 164, 32);
+		frame.getContentPane().add(ButtonClear);
 		
 		checkBox.setForeground(Color.WHITE);
 		checkBox.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -117,6 +128,20 @@ public class TommorowTask {
 		calendar.setBounds(51, 28, 692, 345);
 		frame.getContentPane().add(calendar);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(51, 373, 321, 214);
+		frame.getContentPane().add(scrollPane);
+		
+		scrollPane.setViewportView(textArea);
+		textArea.setMargin(new Insets(2, 6, 2, 2));
+		textArea.setTabSize(2);
+		textArea.setFont(new Font("Arial", Font.PLAIN, 20));
+		textArea.setLineWrap(true);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(79, 348, 636, 11);
+		frame.getContentPane().add(separator);
+		
 		ConnectionToDB.listAll.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		ConnectionToDB.listAll.setFont(new Font("Arial", Font.PLAIN, 18));
 		ConnectionToDB.listAll.setSelectedIndex(0);
@@ -127,29 +152,5 @@ public class TommorowTask {
 		scrollPane_1.getViewport().setView(ConnectionToDB.listAll);
 		frame.getContentPane().add(scrollPane_1);
 		
-		JButton button_2 = new JButton("Показать всё");
-		button_2.setForeground(Color.DARK_GRAY);
-		button_2.setFont(new Font("Arial", Font.PLAIN, 20));
-		button_2.setFocusable(false);
-		button_2.setFocusTraversalKeysEnabled(false);
-		button_2.setFocusPainted(false);
-		button_2.setBackground(Color.WHITE);
-		button_2.addActionListener(new TommorowListener());
-		button_2.setBounds(415, 636, 181, 32);
-		frame.getContentPane().add(button_2);
-		
-		JButton button_3 = new JButton("Очистить");
-		button_3.setForeground(Color.DARK_GRAY);
-		button_3.setFont(new Font("Arial", Font.PLAIN, 20));
-		button_3.setFocusable(false);
-		button_3.setFocusTraversalKeysEnabled(false);
-		button_3.setFocusPainted(false);
-		button_3.setBackground(Color.WHITE);
-		button_3.addActionListener(new TommorowListener());
-		button_3.setBounds(208, 636, 164, 32);
-		frame.getContentPane().add(button_3);
-		frame.setResizable(false);
-		frame.setType(Type.UTILITY);
-		frame.setBounds(Position.X[2],Position.Y[2], 800, 735);
 	}
 }

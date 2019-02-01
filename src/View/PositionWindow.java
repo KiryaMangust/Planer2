@@ -1,5 +1,4 @@
 package View;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Window.Type;
@@ -24,21 +23,26 @@ public class PositionWindow {
 	public static JTextField textField_6 = new JTextField();
 	public static JTextField textField_7 = new JTextField();
 
-
-	public static void main() {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+	public static void main() 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
 				try {
 					PositionWindow window = new PositionWindow();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} 
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
 		});
 	}
 
-	public PositionWindow() {
+	public PositionWindow() 
+	{
 		initialize();
 	}
 

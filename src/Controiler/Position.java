@@ -36,10 +36,7 @@ public class Position {
 		{	
 			for(int i=0; i<4; i++)
 			{
-				Winodws[0] = "Main";
-				Winodws[1] = "Today";
-				Winodws[2] = "AllT";
-				Winodws[3] = "LongT";
+				Table();
 				Statement statement = co2.createStatement();
 				String querry = ("SELECT * From "+Winodws[i]+";");
 				ResultSet rs = statement.executeQuery(querry);
@@ -62,10 +59,7 @@ public class Position {
 	{
 		try 
 		{
-			Winodws[0] = "Main";
-			Winodws[1] = "Today";
-			Winodws[2] = "AllT";
-			Winodws[3] = "LongT";
+			Table();
 			for(int i=0; i<4; i++)
 			{
 				String query2 = ("Delete From "+Winodws[i]+";");
@@ -75,9 +69,18 @@ public class Position {
 				statement.executeUpdate(query);
 				statement.close();
 			}
-		} catch (Exception e) 
+		} 
+		catch (Exception e) 
 		{
 			System.out.println(e);
 		}
+	}
+	
+	public static void Table()
+	{
+		Winodws[0] = "Main";
+		Winodws[1] = "Today";
+		Winodws[2] = "AllT";
+		Winodws[3] = "LongT";
 	}
 }

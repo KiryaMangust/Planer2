@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.SQLException;
 import java.sql.Statement;
 import View.TommorowTask;
 
@@ -35,10 +36,6 @@ public class TaskOperation
 					if (TommorowTask.checkBox.isSelected())
 					{
 						query = "INSERT INTO Plans (Date, Task, Important, Done) " + "VAlUES ('"+ date + "', '" + quest + "', '(i)', '(In proces)')";	
-					}
-					else
-					{
-						query = "INSERT INTO Plans (Date, Task, Important, Done) " + "VAlUES ('"+ date + "', '" + quest + "', '(n)' ,'(In proces)')";
 					}
 					Statement statement = ConnectionToDB.co.createStatement ();
 					statement.executeUpdate(query);
@@ -97,50 +94,55 @@ public class TaskOperation
 		try
 		{
 			//—читывание текста задани€
-				a=10;
-				b=7;
-				int size = ConnectionToDB.listModel.size();
-				for(int i=0; i < size ; i++)
+			a=10;
+			b=7;
+			int size = ConnectionToDB.listModel.size();
+			for(int i=0; i < size ; i++)
+			{
+				String quest = ConnectionToDB.listModel.getElementAt(i).toString();
+				if (Done(quest))
 				{
-					String quest = ConnectionToDB.listModel.getElementAt(i).toString();
-					if (Done(quest))
+					if(quest.length()<10)
 					{
-						if(quest.length()<10)
+						int a=0,b=7;
+						DeleteDoneDB(quest,a,b);
+					}
+					else
+					{
+						if (IfImportant(quest)) 
 						{
-							Statement statement = ConnectionToDB.co.createStatement ();
-							String task = quest.substring(0,quest.length()-7 );
-							String query = "Delete From Plans Where Task = '" + task + "';";
-							statement.executeUpdate(query);
-							statement.close();
+							int a=0,b=11;
+							DeleteDoneDB(quest,a,b);
 						}
 						else
 						{
-							if (IfImportant(quest)) 
-							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(0,quest.length()-11 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
-							}
-							else
-							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(0,quest.length()-7 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
-							}
+							int a=0,b=7;
+							DeleteDoneDB(quest,a,b);
 						}
-
 					}
 				}
-				ConnectionToDB.Refresh();
 			}
-		
+		}
 		catch (Exception e)
 		{
 			System.out.println(e);
+		}
+	}
+	
+	public static void DeleteDoneDB(String quest, Integer a, Integer b)
+	{
+		try
+		{
+			Statement statement = ConnectionToDB.co.createStatement ();
+			String task = quest.substring(a,quest.length()-b );
+			String query = "Delete From Plans Where Task = '" + task + "';";
+			statement.executeUpdate(query);
+			statement.close();
+			ConnectionToDB.Refresh();
+		}
+		catch (Exception e) 
+		{
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -156,19 +158,13 @@ public class TaskOperation
 						b=7;
 							if (IfImportant(quest)) 
 							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(11,quest.length()-11 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
+								int a=11,b=11;
+								DeleteSelectedDB(quest,a,b);
 							}
 							else
 							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(11,quest.length()-7 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
+								int a=11,b=7;
+								DeleteSelectedDB(quest,a,b);
 							}
 					}
 					else
@@ -177,28 +173,36 @@ public class TaskOperation
 						b=12;
 							if (IfImportant(quest)) 
 							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(11,quest.length()-16 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
+								int a=11,b=16;
+								DeleteSelectedDB(quest,a,b);
 							}
 							else
 							{
-								Statement statement = ConnectionToDB.co.createStatement ();
-								String task = quest.substring(11,quest.length()-12 );
-								String query = "Delete From Plans Where Task = '" + task + "';";
-								statement.executeUpdate(query);
-								statement.close();
+								int a=11,b=12;
+								DeleteSelectedDB(quest,a,b);
 							}
-
 					}
-				ConnectionToDB.Refresh();
 			}
-		
 		catch (Exception e)
 		{
 			System.out.println(e);
+		}
+	}
+	
+	public static void DeleteSelectedDB(String quest, Integer a, Integer b)
+	{
+		try 
+		{
+			Statement statement = ConnectionToDB.co.createStatement ();
+			String task = quest.substring(a,quest.length()-b );
+			String query = "Delete From Plans Where Task = '" + task + "';";
+			statement.executeUpdate(query);
+			statement.close();
+			ConnectionToDB.Refresh();
+		}
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
 		}
 	}
 	
@@ -208,12 +212,12 @@ public class TaskOperation
 		{
 			Statement statement = ConnectionToDB.co.createStatement ();
 			String task = ConnectionToDB.listLong.getSelectedValue().toString();
-				String DBtask = task.substring(0, task.length()-12);
-				String query = "Update LPlans Set Done = '(Done)' Where Task = '" + DBtask + "';";
-				statement.executeUpdate(query);
-				statement.close();
-				ConnectionToDB.Refresh();
-			}
+			String DBtask = task.substring(0, task.length()-12);
+			String query = "Update LPlans Set Done = '(Done)' Where Task = '" + DBtask + "';";
+			statement.executeUpdate(query);
+			statement.close();
+			ConnectionToDB.Refresh();
+		}
 		catch (Exception e)
 		{
 			System.out.println(e);
@@ -251,26 +255,14 @@ public class TaskOperation
 	{
 		int longer = task.length();
 		String IfImportant = task.substring(longer-a, longer-b);
-		if (IfImportant.equals("(i)"))
-		{
-		return true;
-		}
-		else
-		return false;
+		return (IfImportant.equals("(i)"));
 	}
 
 	public static boolean Done(String value)
 	{
 		int longer = value.length();
 		String IfDone = value.substring(longer-6, longer);
-		if (IfDone.equals("(Done)"))
-		{
-		return true;
-		}
-		else
-		{
-		return false;
-		}
+		return (IfDone.equals("(Done)"));
 	}
 
 	public static void DeleteAll() 

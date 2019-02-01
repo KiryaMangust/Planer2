@@ -6,7 +6,7 @@ import Model.ConnectionToDB;
 import Model.TaskOperation;
 import View.*;
 
-public class MainListener implements ActionListener {
+public class MainListener implements ActionListener{
 
 	public void actionPerformed(ActionEvent a) 
 	{

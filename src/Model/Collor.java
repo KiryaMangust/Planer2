@@ -1,9 +1,6 @@
 package Model;
-
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
-
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 
@@ -57,37 +54,21 @@ public class Collor {
 	public static boolean Size(String value)
 	{
 		int size = value.length();
-		if(size<16)
-		{
-			return true;
-		}
-		else return false;	
+		return (size<16);
 	}
 	
 	public static boolean Done(String value)
 	{
-		int longer = value.length();
-		IfDone = value.substring(longer-6, longer);
-		if (IfDone.equals("(Done)"))
-		{
-		return true;
-		}
-		else
-		{
-		return false;
-		}
+		int size = value.length();
+		IfDone = value.substring(size-6, size);
+		return (IfDone.equals("(Done)"));
 	}
 	
 	public static boolean Important(String value)
 	{
-		int longer = value.length();
-		IfImportant1 = value.substring(longer-a, longer-b);
-		if (IfImportant1.equals("(i)"))
-		{
-		return true;
-		}
-		else
-		return false;
+		int size = value.length();
+		IfImportant1 = value.substring(size-a, size-b);
+		return (IfImportant1.equals("(i)"));
 	}
 }
 

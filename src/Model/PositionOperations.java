@@ -1,7 +1,5 @@
 package Model;
-
 import javax.swing.JOptionPane;
-
 import Controiler.Position;
 import View.LongTimeTask;
 import View.MainWindow;
@@ -28,7 +26,6 @@ public class PositionOperations
 		TodayTask.main();
 		TommorowTask.main();
 		LongTimeTask.main();
-		
 	}
 	
 	public static void TakeInfo()
@@ -50,6 +47,7 @@ public class PositionOperations
 			JOptionPane.showMessageDialog(null, "Все поля должны быть заполнены, и ТОЛЬКО целыми числами!");
 		}
 	}
+	
 	public static void SentInfo()
 	{
 		PositionWindow.textField.setText(Integer.toString(Position.X[0]));

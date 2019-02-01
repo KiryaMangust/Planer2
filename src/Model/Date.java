@@ -1,9 +1,7 @@
 package Model;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-
 import View.TommorowTask;
 
 public class Date 
@@ -19,7 +17,6 @@ public class Date
 		View.MainWindow.date.setText("Сегодня "+dateFormat.format(date));
 		DateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
 		TodayDate = dateFormat2.format(date);
-		
 	}
 
 	//Считывание даты с календаря и трансформация в формат БД

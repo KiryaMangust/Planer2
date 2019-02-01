@@ -16,7 +16,6 @@ public class ConnectionToDB
 	public static JList listAll = new JList(listModelAll);
 	public static JList listLong = new JList(listModelLong);
 	
-	//Соединение с бд
 	public static boolean open ()
 	{
 		try
@@ -32,7 +31,6 @@ public class ConnectionToDB
 		}
 	}
 	
-	//Задания на сегодня
 	public static void SelectToday ()
 	{
 		try
@@ -140,7 +138,6 @@ public class ConnectionToDB
 			{
 				System.out.println(e);
 			}
-	
 	}
 
 	public static void SelectLong()

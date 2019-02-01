@@ -1,5 +1,4 @@
 package Model;
-
 import Controiler.Position;
 import View.*;
 

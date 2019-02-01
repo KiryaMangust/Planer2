@@ -2,6 +2,10 @@ package Model;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import View.LongTimeTask;
+import View.MainWindow;
+import View.TodayTask;
 import View.TommorowTask;
 
 public class TaskOperation 
@@ -277,6 +281,16 @@ public class TaskOperation
 			System.out.println(e);
 		}
 		ConnectionToDB.Refresh();
+	}
+	//Refresh the program
+	public static void RefreshProgram() 
+	{
+		Date.TodayIs();
+		if (MainWindow.frmMyPlans.isVisible()) 	MainWindow.frmMyPlans.dispose();
+		if (TodayTask.frmTodayTasks.isVisible())	TodayTask.frmTodayTasks.dispose();else;
+		if (TommorowTask.frame.isVisible())	TommorowTask.frame.dispose();else;
+		if (LongTimeTask.frame.isVisible())	LongTimeTask.frame.dispose();else;
+		MainWindow.main();
 	}
 	
 }

@@ -37,6 +37,6 @@ public class MainListener implements ActionListener{
 		}
 		if(a.getActionCommand().equals("Позиционирование"))	PositionWindow.main();
 		if(a.getActionCommand().equals("Удалить всё"))	TaskOperation.DeleteAll();
-		
+		if(a.getActionCommand().equals("Обновить"))	TaskOperation.RefreshProgram();
 	}
 }

@@ -88,6 +88,7 @@ public class MainWindow {
 		ButtonReset.setFocusPainted(false);
 		ButtonReset.setBackground(Color.WHITE);
 		ButtonReset.setBounds(50, 232, 250, 40);
+		ButtonReset.addActionListener(new MainListener());
 		frmMyPlans.getContentPane().add(ButtonReset);
 		date.setHorizontalTextPosition(SwingConstants.CENTER);
 		

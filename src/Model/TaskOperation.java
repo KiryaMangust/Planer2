@@ -31,15 +31,15 @@ public class TaskOperation
 				//Запись в БД
 				if(TommorowTask.checkBox_1.isSelected())
 				{
-					query = "INSERT INTO LPlans (Task, Done) " + "VAlUES ('"+ quest + "', '(In proces)')";
-					Statement statement = ConnectionToDB.co.createStatement ();
-					statement.executeUpdate(query);
-					statement.close();
-//					query = "INSERT INTO LPlans (Task, Done) " + "VAlUES (?,?)";
-//					PreparedStatement statement = ConnectionToDB.co.prspareStatement(query);
-//					statement.setString(1, quest);
-//					statement.setString(2, "(In proces)");
-//					statement.execute();
+//					query = "INSERT INTO LPlans (Task, Done) " + "VAlUES ('"+ quest + "', '(In proces)')";
+//					Statement statement = ConnectionToDB.co.createStatement ();
+//					statement.executeUpdate(query);
+//					statement.close();
+					query = "INSERT INTO LPlans (Task, Done) " + "VAlUES (?,?)";
+					PreparedStatement statement = ConnectionToDB.co.prspareStatement(query);
+					statement.setString(1, quest);
+					statement.setString(2, "(In proces)");
+					statement.execute();
 				}
 				else
 				{
